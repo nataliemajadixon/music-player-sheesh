@@ -10,14 +10,45 @@ const cover = document.querySelector('#cover')
 
 
 
-const songs = ['bodyLanguage', 'typical', 'makeIt']
+const songs = ['bodylang', 'typical', 'makeit']
 
-let sondIndex = 2
+let songIndex = 1
 
-loadSong(songs[sondIndex])
+loadSong(songs[songIndex])
 
 function loadSong(song) {
     title.innerHTML = song
     audio.src = `songs/${song}.mp3`
     audio.src = `song-cover/${song}.jpg`
 }
+function playSong() {
+musicContainer.classList.add('play')
+playBtn.querySelector('i.fas').classList.remove('fa-play')
+playBtn.querySelector('i.fas').classList.add('fa-pause')
+
+    audio.play()
+}
+
+function pauseSong(){
+ musicContainer.classList.remove('play')
+playBtn.querySelector('i.fas').classList.add('fa-play')
+playBtn.querySelector('i.fas').classList.remove('fa-pause')
+
+    audio.pause()
+}
+
+
+
+
+
+playBtn.addEventListener('click', () => {
+    const isPlaying = musicContainer.classList.contains('play')
+
+    if (isPlaying) {
+        pauseSong()   
+    } else {
+        playSong()
+    }
+})
+
+
