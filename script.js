@@ -25,8 +25,9 @@ function playSong() {
 musicContainer.classList.add('play')
 playBtn.querySelector('i.fas').classList.remove('fa-play')
 playBtn.querySelector('i.fas').classList.add('fa-pause')
-
+    console.log("?")
     audio.play()
+    console.log("??")
 }
 
 function pauseSong(){
